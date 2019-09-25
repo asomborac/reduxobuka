@@ -4,11 +4,11 @@
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
+// existing tabs open on the page hve been closed, since previously cached
 // resources are updated in the background.
 
 // To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
+// opt-in, read https://bit.ly/CRA-PWA 
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||

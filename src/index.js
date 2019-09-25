@@ -16,6 +16,3 @@ ReactDOM.render(
 );
 
 serviceWorker.unregister();
-
-// treba importovati provider iz reduxa
-// i wrapovati app u provider 

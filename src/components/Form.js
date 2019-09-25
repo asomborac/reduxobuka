@@ -4,7 +4,7 @@ import * as actions from "../actions/actions";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import List from '../components/List';
+import List from "../components/List";
 
 class Form extends Component {
   constructor(props) {
@@ -14,29 +14,24 @@ class Form extends Component {
       text: ""
     };
   }
-  // handler za promenu u inputu
+
   handleChange = e => {
     this.setState({ text: e.target.value });
   };
 
-  // poziva akciju createEntry koja pokrece case
-  // u reduceru CREATE_ENTRY koji pravi novi unos
   handleSubmit = e => {
     e.preventDefault();
 
     let entry = {
       text: this.state.text
     };
-    /////////////////////////////////////
+
     this.props.createEntry(entry);
-    ////////////////////////////////////
+
     this.setState({
       text: ""
     });
   };
-
-  // poziva akciju deleteEntry koja poziva case
-  // u reduceru DELETE_ENTRY
 
   handleReset = e => {
     this.props.resetEntries();
@@ -74,8 +69,7 @@ class Form extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-  };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {

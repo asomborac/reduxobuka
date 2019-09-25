@@ -8,8 +8,6 @@ class App extends Component {
   }
 }
 
-// redux state i dispatch funkcije
-
 const mapStateToProps = (state, ownProps) => {};
 
 const mapDispatchToProps = dispatch => {};

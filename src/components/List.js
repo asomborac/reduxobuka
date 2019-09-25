@@ -4,7 +4,6 @@ import * as actions from "../actions/actions";
 import RaisedButton from "material-ui/RaisedButton";
 
 class List extends Component {
-    
   handleDelete = (e, index) => {
     e.preventDefault();
     this.props.deleteEntry(index);
