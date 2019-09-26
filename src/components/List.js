@@ -10,10 +10,11 @@ class List extends Component {
   };
 
   listView(data, index) {
+    console.log(data);
     return (
       <div className="row">
         <li key={index} className="mylist">
-          {index}-{data.text}
+          {index}-{data.text},{data.year}
           <RaisedButton
             className="batan"
             label="Delete"

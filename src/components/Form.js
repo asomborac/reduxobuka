@@ -11,25 +11,34 @@ class Form extends Component {
     super(props);
 
     this.state = {
-      text: ""
+      text: "",
+      year: ""
     };
   }
 
   handleChange = e => {
-    this.setState({ text: e.target.value });
+    const { name, value } = e.target;
+
+    this.setState({
+      [name]: value
+    });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
     let entry = {
-      text: this.state.text
+      text: this.state.text,
+      year: this.state.year
     };
 
     this.props.createEntry(entry);
 
     this.setState({
       text: ""
+    });
+    this.setState({
+      year: ""
     });
   };
 
@@ -46,9 +55,19 @@ class Form extends Component {
             hintText="Input text here"
             floatingLabelText="Text entry"
             value={this.state.text}
-            onChange={e => this.handleChange(e)}
+            onChange={this.handleChange}
             floatingLabelFixed
           />
+          <br />
+          <TextField
+            name="year"
+            hintText="Input year here"
+            floatingLabelText="Year entry"
+            value={this.state.year}
+            onChange={this.handleChange}
+            floatingLabelFixed
+          />
+          <br />
           <RaisedButton
             label="Submit"
             onClick={e => this.handleSubmit(e)}
