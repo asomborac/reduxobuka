@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions/actions";
-import TextField from "material-ui/TextField";
-import RaisedButton from "material-ui/RaisedButton";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { TextField } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 import List from "../components/List";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
+import { Select } from "@material-ui/core";
+import { MenuItem } from "@material-ui/core";
+import { InputLabel } from "@material-ui/core";
+import { FormControl } from '@material-ui/core';
 import { styled } from "@material-ui/styles";
 
 const InputStyle = styled(FormControl)({
@@ -225,25 +225,25 @@ class Form extends Component {
             floatingLabelFixed
           />
           <br />
-          <RaisedButton
+          <Button variant="contained"
             label="Submit"
             onClick={e => this.handleSubmit(e)}
             primary
             className="batan"
           />
-          <RaisedButton
+          <Button variant="contained"
             label="Reset"
             onClick={e => this.handleReset(e)}
             primary
             className="batan"
           />
-          <RaisedButton
+          <Button variant="contained"
             label="Random"
             onClick={e => this.handleSubmitRandom(e)}
             primary
             className="batan"
           />
-            <RaisedButton
+            <Button variant="contained"
             label="Random 20"
             onClick={e => this.handle20(e)}
             primary

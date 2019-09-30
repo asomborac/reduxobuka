@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions/actions";
-import RaisedButton from "material-ui/RaisedButton";
+import Button from "@material-ui/core/Button";
 import Table from "@material-ui/core/Table";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
@@ -37,7 +37,7 @@ class List extends Component {
         <NewCell3>{data.year}</NewCell3>
         <NewCell3>{data.price}</NewCell3>
         <NewCell2>
-          <RaisedButton
+          <Button variant="contained"
             className="batan"
             label="Delete"
             onClick={e => this.handleDelete(e, index)}
