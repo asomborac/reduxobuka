@@ -15,6 +15,7 @@ const InputStyle = styled(FormControl)({
   minWidth: 260
 });
 
+/////////////// Form.js /////////////////
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +42,7 @@ class Form extends Component {
       text: this.state.text,
       year: this.state.year,
       region: this.state.region,
-      price: this.state.price,
+      price: this.state.price
     };
 
     this.props.createEntry(entry);
@@ -51,13 +52,13 @@ class Form extends Component {
     this.setState({ year: "" });
     this.setState({ region: "" });
     this.setState({ price: "" });
-  }
+  };
 
   handle20 = e => {
-    for (let i=0; i<20; i++){
+    for (let i = 0; i < 20; i++) {
       this.handleSubmitRandom(e);
     }
-  }
+  };
 
   handleSubmitRandom = e => {
     e.preventDefault();
@@ -112,7 +113,9 @@ class Form extends Component {
     }
 
     if (priceif === "") {
-      priceif = getRandomArbitrary(200, 2000);
+      let newone = 2020 - yearif;
+      let randomnumber = getRandomArbitrary(20, 50);
+      priceif = newone * randomnumber;
       priceif = Math.round(priceif);
     }
 
@@ -207,6 +210,7 @@ class Form extends Component {
             </Select>
           </InputStyle>
           <br />
+
           <TextField
             name="year"
             hintText="Input year here"
@@ -215,6 +219,7 @@ class Form extends Component {
             onChange={this.handleChange}
             floatingLabelFixed
           />
+
           <br />
           <TextField
             name="price"
@@ -230,27 +235,34 @@ class Form extends Component {
             onClick={e => this.handleSubmit(e)}
             primary
             className="batan"
+            color="primary"
           />
+
           <RaisedButton
             label="Reset"
             onClick={e => this.handleReset(e)}
             primary
+            color="primary"
             className="batan"
           />
+
           <RaisedButton
             label="Random"
             onClick={e => this.handleSubmitRandom(e)}
             primary
+            color="primary"
             className="batan"
           />
-            <RaisedButton
+          <RaisedButton
             label="Random 20"
             onClick={e => this.handle20(e)}
             primary
+            color="primary"
             className="batan"
           />
+
+          <List />
         </div>
-        <List />
       </MuiThemeProvider>
     );
   }

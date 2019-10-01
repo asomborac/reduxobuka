@@ -7,20 +7,42 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { styled } from "@material-ui/styles";
+import { Grid, TableBody, Paper } from "@material-ui/core";
+import { width, border, borderRadius } from "@material-ui/system";
 
-const NewCell1 = styled(TableCell)({
-  width: "40px"
+const MyButton = styled(RaisedButton)({
+  margin: "1px 1px",
+  borderRadius: "0px"
+});
+const HeaderPaper = styled(Paper)({
+  height: "70px",
+  width: "17%",
+  textAlign: "center",
+  borderRadius: "0px",
+  verticalAlign: "middle"
+});
+const IdHeaderPaper = styled(Paper)({
+  height: "70px",
+  width: "5%",
+  textAlign: "center",
+  borderRadius: "0px"
+});
+const MyPaper = styled(Paper)({
+  // height: "40px",
+  width: "17%",
+  textAlign: "center",
+  borderRadius: "0px",
+  alignItems: "center"
 });
 
-const NewCell2 = styled(TableCell)({
-  width: "120px"
+const IdPaper = styled(Paper)({
+  // height: "40px",
+  width: "5%",
+  textAlign: "center",
+  borderRadius: "0px"
 });
 
-const NewCell3 = styled(TableCell)({
-  width: "200px",
-  align: "center"
-});
-
+/////////////// List.js /////////////////
 class List extends Component {
   handleDelete = (e, index) => {
     e.preventDefault();
@@ -29,39 +51,70 @@ class List extends Component {
 
   tableBody(data, index) {
     return (
-      <TableRow key={index} className="ab">
-        <NewCell1>{index + 1}</NewCell1>
-        <NewCell3>{data.name}</NewCell3>
-        <NewCell3>{data.text}</NewCell3>
-        <NewCell3>{data.region}</NewCell3>
-        <NewCell3>{data.year}</NewCell3>
-        <NewCell3>{data.price}</NewCell3>
-        <NewCell2>
-          <RaisedButton
-            className="batan"
-            label="Delete"
-            onClick={e => this.handleDelete(e, index)}
-            primary
-          />
-        </NewCell2>
-      </TableRow>
+      <Grid container spacing={0} justify="space-evenly">
+        <IdPaper>
+          <p>{index + 1}</p>
+        </IdPaper>
+
+        <MyPaper>
+          <p>{data.name}</p>
+        </MyPaper>
+
+        <MyPaper>
+          <p>{data.text}</p>
+        </MyPaper>
+
+        <MyPaper>
+          <p>{data.region}</p>
+        </MyPaper>
+
+        <MyPaper>
+          <p>{data.year}</p>
+        </MyPaper>
+
+        <MyPaper>
+          <p>{data.price}</p>
+        </MyPaper>
+        <IdPaper>
+          <p>
+            <MyButton
+              // className="batan"
+              label="Delete"
+              primary
+              onClick={e => this.handleDelete(e, index)}
+            ></MyButton>
+          </p>
+        </IdPaper>
+      </Grid>
     );
   }
 
   render() {
     return (
       <div>
-        <Table>
-          <TableHead>
-            <NewCell1>Id</NewCell1>
-            <NewCell3>Name</NewCell3>
-            <NewCell3>Type</NewCell3>
-            <NewCell3>Region</NewCell3>
-            <NewCell3>Year</NewCell3>
-            <NewCell3>Price</NewCell3>
-            <NewCell2>        Delete</NewCell2>
-          </TableHead>
-        </Table>
+        <Grid container spacing={0} justify="space-evenly">
+          <IdHeaderPaper>
+            <h3>Id</h3>
+          </IdHeaderPaper>
+          <HeaderPaper>
+            <h3>Name</h3>
+          </HeaderPaper>
+          <HeaderPaper>
+            <h3>Type</h3>
+          </HeaderPaper>
+          <HeaderPaper>
+            <h3>Region</h3>
+          </HeaderPaper>
+          <HeaderPaper>
+            <h3>Year</h3>
+          </HeaderPaper>
+          <HeaderPaper>
+            <h3>Price</h3>
+          </HeaderPaper>
+          <IdHeaderPaper>
+            <h3>Delete</h3>
+          </IdHeaderPaper>
+        </Grid>
 
         {this.props.entries.map((entry, i) => this.tableBody(entry, i))}
       </div>

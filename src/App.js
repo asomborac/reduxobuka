@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Form from "./components/Form";
 
+/////////////// App.js /////////////////
 class App extends Component {
   render() {
     return <Form />;
